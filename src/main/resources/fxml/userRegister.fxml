@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<!--<?import com.jfoenix.controls.JFXTextField?>-->
+<!--<?import com.jfoenix.controls.JFXButton?>-->
+
+<AnchorPane fx:id="registerPane" prefHeight="399.0" prefWidth="573.0" style="-fx-background-color: #2c2638;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.swlc.social_media.controller.UserRegisterController">
+   <children>
+      <ImageView fx:id="propic" fitHeight="100.0" fitWidth="100.0" layoutX="369.0" layoutY="29.0">
+         <image>
+            <Image url="@../images/noContent.jpg" />
+         </image>
+         <clip>
+            <Circle centerX="50.0" centerY="50.0" radius="50.0" />
+         </clip>
+      </ImageView>
+      <ImageView fx:id="cameraView" fitHeight="25.0" fitWidth="25.0" layoutX="408.0" layoutY="99.0" onMouseClicked="#handleImageClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-camera-24%20(1).png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="channelname" layoutX="308.0" layoutY="153.0" prefHeight="31.0" prefWidth="219.0" promptText="channel name" style="-fx-prompt-text-fill: #ffff; -fx-background-color: #3b354b;" styleClass="profile-label" />
+      <TextField fx:id="password" layoutX="308.0" layoutY="202.0" prefHeight="31.0" prefWidth="219.0" promptText="password" style="-fx-background-color: #3b354b; -fx-prompt-text-fill: white;" styleClass="profile-label" />
+      <Button layoutX="351.0" layoutY="255.0" mnemonicParsing="false" onAction="#btnregisterOnAction" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: #6b53b1;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="319.0" layoutY="305.0" onAction="#btnNavigateLoginOnAction" style="-fx-text-fill: white; -fx-background-color: transparent;" text="Already have a account? Login" textFill="WHITE" />
+      <ImageView fitHeight="378.0" fitWidth="264.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" AnchorPane.bottomAnchor="9.666666666666686" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="335.0" AnchorPane.topAnchor="11.33">
+         <image>
+            <Image url="@../images/loginImage.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="98.0" layoutY="41.0" text="SocialBloom" textFill="WHITE">
+         <font>
+            <Font name="Rage Italic" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="166.0" fitWidth="152.0" layoutX="62.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="43.0" layoutY="339.0" prefHeight="24.0" prefWidth="204.0" text="Share moments, build memories" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

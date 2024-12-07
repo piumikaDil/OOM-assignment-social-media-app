@@ -1,0 +1,23 @@
+
+/* General button styles */
+.button {
+
+    -fx-padding: 10px 20px; /* Padding around the text */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-cursor: hand; /* Pointer cursor on hover */
+}
+
+/* Hover effect */
+.button:hover {
+    -fx-background-color: #555555; /* Darker green */
+}
+
+/* Active effect */
+.button:pressed {
+    -fx-background-color: #2f2f2f; /* Even darker green */
+}
+
+/* Status label styles */
+.status-label {
+}

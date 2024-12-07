@@ -1,0 +1,14 @@
+.mainpane {
+    -fx-background-color: #2c2638;
+
+}
+
+.profile-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #FFFFFF;
+    -fx-background-color: #3b354b;
+}
+
+.image {
+-fx-background-radius: 50;
+}

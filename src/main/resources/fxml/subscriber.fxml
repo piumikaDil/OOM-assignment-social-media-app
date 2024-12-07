@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="dynamicPane" stylesheets="@../styles/subPageStyles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.swlc.social_media.controller.SubscriberController">
+    <children>
+        <!-- ScrollPane for posts -->
+        <ScrollPane fitToWidth="true" layoutY="62.0" prefHeight="349.0" prefWidth="407.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="62.0">
+            <content>
+                <!-- FlowPane for responsive grid-style layout -->
+                <FlowPane fx:id="postPane" alignment="CENTER" hgap="20" vgap="20" />
+            </content>
+        </ScrollPane>
+
+        <!-- HBox for centering the buttons with a gap -->
+        <HBox alignment="CENTER" layoutX="123.0" layoutY="10.0" prefHeight="31.0" prefWidth="291.0" spacing="20" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <Button fx:id="subscribedBtn" onAction="#onClickSubscribedBtn" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: #6b53b1;" text="Subscribed">
+               <font>
+                  <Font size="8.0" />
+               </font></Button>
+                <Button fx:id="forSubBtn" onAction="#onClickForSubscribeBtn" prefHeight="31.0" prefWidth="151.0" style="-fx-background-color: #2c2638;" text="For Subscribe">
+               <font>
+                  <Font size="8.0" />
+               </font></Button>
+            </children>
+        </HBox>
+      <ImageView fitHeight="83.0" fitWidth="108.0" layoutX="10.0" layoutY="-16.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

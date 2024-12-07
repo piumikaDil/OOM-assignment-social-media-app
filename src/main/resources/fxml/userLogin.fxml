@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--<?import com.jfoenix.controls.JFXButton?>-->
+<!--<?import com.jfoenix.controls.JFXTextField?>-->
+
+<AnchorPane fx:id="loginPane" prefHeight="399.0" prefWidth="553.0" styleClass="mainpane" stylesheets="@/styles/loginPageStyles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.swlc.social_media.controller.UserLoginController">
+    <children>
+        <VBox alignment="CENTER" layoutX="303.3333333333333" prefHeight="384.0" prefWidth="230.0" spacing="12" AnchorPane.leftAnchor="303.0" AnchorPane.rightAnchor="20.0">
+         <Label prefHeight="46.0" prefWidth="118.0" text="Log In" textFill="#efefef">
+            <font>
+               <Font name="Bookman Old Style Bold" size="31.0" />
+            </font>
+         </Label>
+            <TextField fx:id="channelNameField" prefHeight="31.0" prefWidth="322.0" promptText="Username" styleClass="profile-label">
+            <font>
+               <Font size="11.0" />
+            </font></TextField>
+            <TextField fx:id="passwordField" prefHeight="31.0" prefWidth="309.0" promptText="Password" styleClass="profile-label" />
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#onClickBtnLogin" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #6b53b1;" text="Login" textFill="WHITE">
+            <font>
+               <Font name="Arial Bold" size="12.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor></Button>
+            <Button fx:id="registerButton" onAction="#btnNavigateRegisterOnAction" style="-fx-text-fill: white; -fx-background-color: transparent;" text="Don't have account? Register">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        </VBox>
+      <ImageView fitHeight="378.0" fitWidth="264.0" layoutX="10.0" layoutY="11.333333333333334" pickOnBounds="true" style="-fx-background-radius: 50;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="11.333333333333334">
+         <image>
+            <Image url="@../images/loginImage.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="95.0" layoutY="34.0" text="SocialBloom" textFill="WHITE">
+         <font>
+            <Font name="Rage Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="328.0" prefHeight="24.0" prefWidth="204.0" text="Share moments, build memories" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="166.0" fitWidth="152.0" layoutX="66.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="335.0">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
