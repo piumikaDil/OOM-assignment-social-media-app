@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane stylesheets="@../styles/otherChannelStyles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.swlc.social_media.controller.OwnChannelController">
+<AnchorPane fx:id="myChannelPane" stylesheets="@../styles/otherChannelStyles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.swlc.social_media.controller.OwnChannelController">
     <children>
         <!-- Header Section -->
         <HBox alignment="CENTER_LEFT" spacing="10" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
