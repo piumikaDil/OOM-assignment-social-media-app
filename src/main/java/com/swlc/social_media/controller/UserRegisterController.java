@@ -1,8 +1,10 @@
 package com.swlc.social_media.controller;
 
+import com.swlc.social_media.dto.ChannelDTO;
 import com.swlc.social_media.model.ChannelModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,13 +40,22 @@ public class UserRegisterController {
     }
 
     public void btnregisterOnAction(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/userLogin.fxml"));
-            Pane loginPane = loader.load();
-            registerPane.getChildren().clear();
-            registerPane.getChildren().add(loginPane);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(channelname.getText() == null || password.getText() == null || selectedFile == null) {
+            new Alert(Alert.AlertType.ERROR, "please fill all field and select channel picture.").show();
+            return;
+        }
+        ChannelDTO new_channel = channelModel.registerChannel(new ChannelDTO(channelname.getText(), password.getText(), selectedFile.getName()), selectedFile);
+        if (new_channel != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/userLogin.fxml"));
+                Pane loginPane = loader.load();
+                registerPane.getChildren().clear();
+                registerPane.getChildren().add(loginPane);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            new Alert(Alert.AlertType.ERROR, "registration failed!").show();
         }
 
     }
