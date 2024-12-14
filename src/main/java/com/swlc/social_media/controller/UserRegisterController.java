@@ -1,7 +1,8 @@
 package com.swlc.social_media.controller;
 
 import com.swlc.social_media.dto.ChannelDTO;
-import com.swlc.social_media.model.ChannelModel;
+import com.swlc.social_media.model.ChannelModelSrvice;
+import com.swlc.social_media.model.impl.ChannelModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -22,7 +23,7 @@ public class UserRegisterController {
     public TextField channelname;
     public TextField password;
     public AnchorPane registerPane;
-    ChannelModel channelModel = new ChannelModel();
+    ChannelModelSrvice channelModel = new ChannelModel();
     public static Stage primaryStage;
 
     private File selectedFile = null;

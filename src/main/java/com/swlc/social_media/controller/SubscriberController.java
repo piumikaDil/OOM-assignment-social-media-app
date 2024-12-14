@@ -1,7 +1,8 @@
 package com.swlc.social_media.controller;
 
 import com.swlc.social_media.dto.ChannelDTO;
-import com.swlc.social_media.model.ChannelModel;
+import com.swlc.social_media.model.ChannelModelSrvice;
+import com.swlc.social_media.model.impl.ChannelModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,14 +23,19 @@ public class SubscriberController {
     public AnchorPane dynamicPane;
     public Button subscribedBtn;
     public Button forSubBtn;
-    ChannelModel channelModel = new ChannelModel();
+    ChannelModelSrvice channelModel = new ChannelModel();
 
     String subBtnAction = "unsub";
     OtherChannelController otherChannelController = new OtherChannelController();
 
     @FXML
     public void initialize() {
-
+        if (postPane == null) {
+            return;
+        }
+        subscribedBtn.setStyle("-fx-background-color: black; -fx-text-fill: white;"); // Green color for active button
+        forSubBtn.setStyle("-fx-background-color: white; -fx-text-fill: black;"); // Default color for inactive button
+        displaySubChannels();
     }
 
     public void addPost(String channelName, String imageName, Long channelId) {

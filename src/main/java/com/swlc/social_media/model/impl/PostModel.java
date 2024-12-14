@@ -1,9 +1,10 @@
-package com.swlc.social_media.model;
+package com.swlc.social_media.model.impl;
 
 import com.swlc.social_media.dto.PostDTO;
 import com.swlc.social_media.dto.ResponseDTO;
 import com.swlc.social_media.entity.ChannelEntity;
 import com.swlc.social_media.entity.PostEntity;
+import com.swlc.social_media.model.PostModelService;
 import com.swlc.social_media.utill.FactoryConfiguration;
 import jakarta.persistence.Query;
 import org.hibernate.Session;
@@ -18,9 +19,10 @@ import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class PostModel {
+public class PostModel implements PostModelService {
     ModelMapper modelMapper = new ModelMapper();
 
+    @Override
     public ResponseDTO savePost(PostDTO postDTO, File selectedImage) {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         String targetPath = "src/main/resources/upload/" + postDTO.getImageName();
@@ -50,6 +52,7 @@ public class PostModel {
         }
     }
 
+    @Override
     public List<PostDTO> getAllPost() {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         List<PostDTO> postDTOS = null;
@@ -69,6 +72,7 @@ public class PostModel {
         return postDTOS;
     }
 
+    @Override
     public List<PostDTO> getPostsByChannelId(Long channelId) {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         try {
@@ -83,25 +87,28 @@ public class PostModel {
             return postDtoList;
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             session.close();
         }
     }
 
+    @Override
     public String getNameByChannelId(Long channelId) {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         try {
             Transaction transaction = session.beginTransaction();
-            ChannelEntity channelEntity = session.get(ChannelEntity.class, channelId);;
+            ChannelEntity channelEntity = session.get(ChannelEntity.class, channelId);
+            ;
             transaction.commit();
             return channelEntity.getChannelName();
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             session.close();
         }
     }
 
+    @Override
     public String getProPicByChannelId(Long channelId) {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         try {
@@ -109,10 +116,11 @@ public class PostModel {
             ChannelEntity channelEntity = session.get(ChannelEntity.class, channelId);
             transaction.commit();
             return channelEntity.getLogo();
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             session.close();
         }
     }
+
 }

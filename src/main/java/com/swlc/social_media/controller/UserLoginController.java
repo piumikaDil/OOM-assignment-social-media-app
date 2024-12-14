@@ -2,7 +2,9 @@ package com.swlc.social_media.controller;
 
 import com.swlc.social_media.dto.ChannelDTO;
 import com.swlc.social_media.entity.ChannelEntity;
-import com.swlc.social_media.model.ChannelModel;
+import com.swlc.social_media.exeptions.CheckValidUserExeption;
+import com.swlc.social_media.model.ChannelModelSrvice;
+import com.swlc.social_media.model.impl.ChannelModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,9 +36,9 @@ public class UserLoginController {
         this.primaryStage = primaryStage;
     }
 
-    ChannelModel channelModel = new ChannelModel();
+        ChannelModelSrvice channelModel = new ChannelModel();
 
-    public void onClickBtnLogin(ActionEvent actionEvent) {
+    public void onClickBtnLogin(ActionEvent actionEvent) throws CheckValidUserExeption {
         String channelName = channelNameField.getText();
         String password = passwordField.getText();
 
@@ -49,7 +51,8 @@ public class UserLoginController {
                 primaryStage.show();
                 primaryStage.centerOnScreen();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.out.println(e);
+                throw new CheckValidUserExeption("Wrong details enterd!");
             }
         } else {
             new Alert(Alert.AlertType.ERROR, "incorrect username or password").show();

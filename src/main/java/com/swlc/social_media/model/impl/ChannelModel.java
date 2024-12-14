@@ -1,8 +1,9 @@
-package com.swlc.social_media.model;
+package com.swlc.social_media.model.impl;
 
 import com.swlc.social_media.dto.ChannelDTO;
 import com.swlc.social_media.dto.ResponseDTO;
 import com.swlc.social_media.entity.ChannelEntity;
+import com.swlc.social_media.model.ChannelModelSrvice;
 import com.swlc.social_media.utill.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,10 +17,11 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 
-public class ChannelModel {
+public class ChannelModel implements ChannelModelSrvice {
 
     ModelMapper mapper = new ModelMapper();
 
+    @Override
     public ChannelEntity login(String channel_name, String password) {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = null;
@@ -37,6 +39,7 @@ public class ChannelModel {
         return channelEntity;
     }
 
+    @Override
     public ResponseDTO updateProfilePicture(Long channelId, File propic) {
         String targetPath = "src/main/resources/upload/" + propic.getName();
         File targetFile = new File(targetPath);
@@ -63,6 +66,7 @@ public class ChannelModel {
         }
     }
 
+    @Override
     public void subscribeChannel(ChannelDTO subscriberChannel, ChannelDTO channelToSubscribe) {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
@@ -81,6 +85,7 @@ public class ChannelModel {
         }
     }
 
+    @Override
     public void unSubscribeChannel(ChannelDTO subscriberChannel, ChannelDTO channelToUnsubscribe) {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
@@ -110,6 +115,7 @@ public class ChannelModel {
         }
     }
 
+    @Override
     public List<ChannelDTO> getAllChannel() {
         List<ChannelDTO> channelDTOS = null;
 
@@ -131,6 +137,7 @@ public class ChannelModel {
         return channelDTOS;
     }
 
+    @Override
     public ChannelDTO getSubscribedChannelsByChannelId(Long channelId) {
         ChannelEntity channelEntity = null;
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
@@ -148,6 +155,7 @@ public class ChannelModel {
         return mapper.map(channelEntity, ChannelDTO.class);
     }
 
+    @Override
     public ChannelDTO registerChannel(ChannelDTO channel, File selected_file) {
         System.out.println(channel);
         System.out.println(selected_file);
@@ -174,4 +182,6 @@ public class ChannelModel {
         }
         return null;
     }
-}
+    }
+
+

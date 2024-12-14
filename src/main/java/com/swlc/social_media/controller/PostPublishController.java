@@ -2,7 +2,8 @@ package com.swlc.social_media.controller;
 
 import com.swlc.social_media.dto.PostDTO;
 import com.swlc.social_media.dto.ResponseDTO;
-import com.swlc.social_media.model.PostModel;
+import com.swlc.social_media.model.PostModelService;
+import com.swlc.social_media.model.impl.PostModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
@@ -20,8 +21,8 @@ public class PostPublishController {
     @FXML
     private TextArea textAreaDescription; //
     private File selectedImage;
-    PostModel postModel = new PostModel();
-    private boolean postCreated = false;
+    PostModelService postModel = new PostModel();
+    private static boolean postCreated = false;
     public static Stage createPostStage;
 
     @FXML
@@ -50,7 +51,7 @@ public class PostPublishController {
         createPostStage.close();
     }
 
-    public boolean isPostCreated() {
+    public static boolean isPostCreated() {
         return postCreated;
     }
 }
